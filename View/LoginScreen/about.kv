@@ -27,22 +27,6 @@
                         adaptive_height: True
                         text: root.about
         Tab:
-            title: "Licence"
-            ScrollView:
-                do_scroll_y: True
-                bar_width: 10
-
-                MDBoxLayout:
-                    orientation: 'vertical'
-                    md_bg_color: app.theme_cls.bg_normal
-                    size_hint_y: None
-                    adaptive_height: True
-                    padding: [10, 10, 10, 10]
-                    MDLabel:
-                        markup: True
-                        adaptive_size: True
-                        text: root.licence
-        Tab:
             title: "Credits"
             ScrollView:
                 do_scroll_y: True
@@ -58,3 +42,19 @@
                         markup: True
                         adaptive_height: True
                         text: root.credits
+        Tab:
+            title: "Licence"
+            ScrollView:
+                do_scroll_y: True
+                bar_width: 10
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    md_bg_color: app.theme_cls.bg_normal
+                    size_hint_y: None
+                    adaptive_height: True
+                    padding: [10, 10, 10, 10]
+                    MDLabel:
+                        markup: True
+                        adaptive_size: True
+                        text: root.licence

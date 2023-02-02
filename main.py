@@ -26,7 +26,7 @@ __license__ = "GPLv3"
 __maintainer__ = "developer"
 __status__ = "Production"
 __version__ = "1.1.2"
-__github__ = ""
+__github__ = "https://github.com/abdeladim-s/whatsapp-msgstore-viewer"
 
 
 import importlib
@@ -68,7 +68,7 @@ class whatsappMsgstoreViewer(MDApp):
         self.key = None
 
         self.default_settings = {
-            'general_font': 'assets/fonts/Cairo-VariableFont_slnt,wght.ttf',
+            'general_font': 'assets/fonts/Cairo.ttf',
             'emojis_font': 'assets/fonts/EmojiOneColor.otf',
             'call_log_size': 10
         }

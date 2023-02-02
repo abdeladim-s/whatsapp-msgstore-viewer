@@ -79,9 +79,9 @@ class About(BoxLayout):
         with open('about', 'r') as file:
             content = file.read()
             self.about = content.replace('$$version$$', MDApp.get_running_app().version)\
-                .replace('$$g_page', MDApp.get_running_app().g_page)
-        # with open('Licence', 'r') as file:
-        #     self.licence = file.read()
+                .replace('$$g_page$$', MDApp.get_running_app().g_page)
+        with open('LICENSE', 'r') as file:
+            self.licence = file.read()
         with open('credits', 'r') as file:
             self.credits = file.read()
 

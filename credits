@@ -1,12 +1,12 @@
 This software would not possible without:
-[color=ffffff]empty line (LOL)[/color]
+[color=ffffff]\n[/color]
 
 - [ref=https://kivy.org][color=0000ff]Kivy[/color][/ref] & [ref=https://kivymd.readthedocs.io][color=0000ff]KivyMD[/color][/ref] for the UI framework.
 - [ref=https://github.com/haddiebakrie/WhatsApp-Redesign][color=0000ff]WhatsApp-Redesign[/color][/ref] for the design inspiration and some UI components.
 - [ref=https://github.com/ElDavoo/WhatsApp-Crypt14-Crypt15-Decrypter][color=0000ff]WhatsApp-Crypt14-Crypt15-Decrypter[/color][/ref] for the decryption algorithm.
 - [ref=https://commons.m.wikimedia.org/wiki/File:Whatsapp_logo.jpg][color=0000ff]Sbk2605[/color][/ref] for the Whatsapp logo (Licenced under [ref=https://creativecommons.org/licenses/by-sa/4.0/deed.en][color=0000ff]Creative Commons Attribution-Share Alike 4.0 International[/color][/ref]).
 - [ref=https://github.com/Pustur/whatsapp-chat-parser-website][color=0000ff]whatsapp-chat-parser-website[/color][/ref] for the background image.
-[color=ffffff]empty line (LOL)[/color]
+[color=ffffff]\n[/color]
 
 - And so many more libraries and frameworks.
-[color=ffffff]empty line (LOL)[/color]
+[color=ffffff]\n[/color]
