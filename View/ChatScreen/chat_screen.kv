@@ -1,0 +1,81 @@
+#:import hex kivy.utils.get_color_from_hex
+
+<ChatScreenView>:
+    FitImage:
+        source: "assets/images/bg.png"
+        pos: self.pos
+        size: self.size
+    MDBoxLayout:
+        orientation: "vertical"
+        MDBoxLayout:
+            size_hint_y: None
+            height: 50
+            spacing: 5
+            md_bg_color: app.theme_cls.primary_color
+            padding: [0, 0, 10, 0]
+            MDIconButton:
+                icon: 'arrow-left'
+                theme_text_color: 'Custom'
+                user_font_size: 18
+                size_hint: (None, None)
+                pos_hint: {'center_y':.5}
+                size: 30, 30
+                padding: 0
+                pos_hint: {'center_y':.5}
+                on_press: root.controller.previous_screen()
+            MDBoxLayout:
+                size_hint: None, None
+                size: 30, 30
+                orientation: 'vertical'
+                pos_hint: {'center_y': .5}
+                Avatar:
+                    source: 'assets/images/avatar.png'
+                    size: 30, 30
+                    size_hint: None, None
+            MDBoxLayout:
+                orientation: "vertical"
+                padding: [0, 10, 0, 10]
+                MLabel:
+                    markup: True
+                    text: root.selected_user
+                    size: self.texture_size
+                    size_hint_y: None
+                    size_hint_x: None
+                    font_size: 17
+                    bold: True
+                    adaptive_size: True
+                    font_style: 'Subtitle2'
+                MDBoxLayout:
+                    size_hint_x: None
+                    spacing: 5
+                    MDIcon:
+                        icon: 'circle'
+                        theme_text_color: 'Custom'
+                        color: [0, 1, 0, 1] if root.active == True else [.5, .5, .5, 1]
+                        font_size: 10
+                        size: 10, 10
+                        size_hint: None, None
+                    MLabel:
+                        text: root.status
+                        size: self.texture_size
+                        size_hint_y: None
+                        size_hint_x: None
+                        font_size: 10
+                        color: app.theme_cls.opposite_bg_normal
+                        adaptive_size: True
+        RV:
+            id: rv
+            viewclass: 'ChatMessage'
+            size_hint_y: 0.9
+            key_size: 'size'
+            effect_cls: 'ScrollEffect'
+            bar_width: 10
+            scroll_type: ['content', 'bars']
+            RecycleBoxLayout:
+                id: rvbox
+                orientation: 'vertical'
+                size_hint_y: None
+                height: self.minimum_height
+                default_size_hint: 1, None
+                padding: 10
+                spacing: 5

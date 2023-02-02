@@ -1,0 +1,28 @@
+<SettingsContent>:
+    size_hint_y: None
+    height: "300dp"
+    bar_width: 10
+    scroll_type: ['content', 'bars']
+    BoxLayout:
+        size_hint_y: None
+        height: self.minimum_height
+        default_size_hint: 1, None
+        orientation: "vertical"
+        spacing: "12dp"
+        TextFieldFileManager:
+            id: general_font
+            hint_text: "General font (Leave it blank to load the default font)"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            helper_text: "In case you are seeing wierd characters, it is probably a font issue, \ntry to load another one that supports your language"
+        TextFieldFileManager:
+            id: emojis_font
+            hint_text: "Emojis font (Leave it blank to load the default font)"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            helper_text: "Load a different emojis font"
+        MDTextField:
+            id: call_log_size
+            input_type: 'number'
+            hint_text: "Calls log size"
+            text: '10'
+            pos_hint: {"center_x": .5, "center_y": .5}
+            helper_text: "Limit the loaded calls log size (for a fast loading of the app)"

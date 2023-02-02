@@ -1,0 +1,97 @@
+<LoginScreenView>
+    FitImage:
+        source: "assets/images/bg.png"
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: 15
+        FitImage:
+            source: "assets/images/logo.png"
+            padding: 4
+            pos_hint: {"center_x": .5, "center_y": .5}
+            size_hint: None, None
+        MDLabel:
+            id: app_name
+            text: "Whatsapp Msgstore Viewer"
+            font_style: "H5"
+            adaptive_height: True
+            halign: "center"
+        MDRectangleFlatIconButton:
+            text: "Check the source code on Github"
+            icon: "github"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            size_hint: None, None
+            on_press: root.open_github_page()
+        MDFloatLayout:
+            MDBoxLayout:
+                orientation: "vertical"
+                adaptive_height: True
+                size_hint_x: None
+                width: root.width - dp(72)
+                radius: 12
+                padding: "12dp"
+                md_bg_color: 1, 1, 1, .5
+                pos_hint: {"center_x": .5, "center_y": .5}
+                MDBoxLayout:
+                    orientation: "vertical"
+                    adaptive_height: True
+                    padding: "25dp"
+                    spacing: "20dp"
+                    TextFieldFileManager:
+                        id: msgstore_file_path
+                        hint_text: "msgstore.db file path"
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                    TextFieldFileManager:
+                        id: wa_file_path
+                        hint_text: "wa.db file path (Optional)"
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        helper_text: "To view contact names instead of just their numbers"
+                    TextFieldFileManager:
+                        id: wp_dir
+                        hint_text: "`Whatsapp` Directory (Optional)"
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        helper_text: "In case you want to view the media in the chat (audios, videos, images ...), leave it blank otherwise"
+                    MDTextField:
+                        id: db_version
+                        pos_hint: {'center_x': .5, 'center_y': .5}
+                        text: app.db_version
+                        hint_text: "Database version"
+                        readonly: True
+                        on_focus: if self.focus: root.menu.open()
+                        helper_text: 'Check the github page for more details'
+                    MDBoxLayout:
+                        id: key_file_container
+                        orientation: 'horizontal'
+                        MDCheckbox:
+                            id: enc_checkbox
+                            size_hint: None, None
+                            size: "48dp", "48dp"
+                            pos_hint: {'center_x': .5, 'center_y': .5}
+                            on_active: root.on_enc_checkbox(self.active)
+                        MDLabel:
+                            markup: True
+                            text: "Encrypted database"
+                            font_style: "Body2"
+                            valign: "center"
+                            theme_text_color: 'Secondary'
+                    MDRoundFlatButton:
+                        text: "Advanced settings"
+                        on_release: root.open_settings()
+
+    MDFillRoundFlatButton:
+        text: "LOGIN" if not enc_checkbox.active else 'DECRYPT & LOGIN'
+        on_release: root.controller.on_tap_button_login()
+        pos_hint: {"center_x": .5, "center_y": .1}
+
+    Attachment:
+        # not an attachment but same ui attributes
+        markup: True
+        text: "[ref=about]About[/ref]"
+        adaptive_height: True
+        halign: "center"
+        theme_text_color: 'Secondary'
+        padding_y: dp(10)
+        pos_hint: {"center_x": .5, "center_y": 0.025}
+        on_ref_press: root.open_about()
+
+
+

@@ -1,0 +1,66 @@
+<ChatListItem>:
+    ripple_behavior: True
+    md_bg_color: 0, 0, 0, 0
+    elevation: 0
+    size_hint_y: None
+    padding: [10, 0, 10, 0]
+    spacing: 10
+    height: chatAvatar.height + 10
+    on_press: root.controller.show_chat_screen(root.id, root.contact_name, root.jid)
+    Avatar:
+        id: chatAvatar
+        source: 'assets/images/avatar.png'
+        pos_hint: {"center_y": .5}
+        radius: [30, ]
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: [0, 0, 0, 10]
+        spacing: 2
+        MLabel:
+            id: contactName
+            adaptive_size: True
+            text: root.contact_name
+            theme_text_color: 'Custom'
+            size: self.texture_size
+            size_hint_y: None
+            size_hint_x: None
+            font_size: 10
+            color: app.theme_cls.opposite_bg_normal
+            bold: True
+            font_style: 'Subtitle2'
+        MDBoxLayout:
+            orientation: "horizontal"
+            spacing: 5
+            MDIcon:
+                theme_text_color: 'Custom'
+                icon: 'check-all'
+                size_hint: None, None
+                font_size: 18
+                size: 20, 20
+                pos_hint: {"center_x": .5, 'center_y': .5}
+                text_color: (0, 0, 1, 1)
+            MLabel:
+                id: lastMessage
+                text: root.last_message
+                height: self.texture_size[1]
+                theme_text_color: 'Custom'
+                size_hint_y: None
+                bold: True
+                font_size: 15
+                color: [.5, .5, .5, 1]
+                shorten: True
+                markup: True
+                shorten_from: 'right'
+                valign: 'center'
+
+    Label:
+        id: time
+        text: root.timestamp
+        size: self.texture_size
+        pos_hint: {'center_y': 0.5}
+        size_hint_y: None
+        size_hint_x: None
+        font_size: 13
+        color: app.theme_cls.opposite_bg_normal
+        valign: 'center'
+        halign: 'center'

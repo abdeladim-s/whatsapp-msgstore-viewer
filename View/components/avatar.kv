@@ -1,0 +1,18 @@
+<Avatar@RelativeLayout>:
+    size: (45, 45)
+    size_hint: (None, None)
+    source: root.source
+    MDCard:
+        size: root.size
+        size_hint: (None, None)
+        radius: [30, ]
+        md_bg_color: app.theme_cls.accent_color
+        elevation: 0
+        pos_hint: {'center_x': .5, 'center_y': .5}
+
+    FitImage:
+        size: root.size[0] - 3, root.size[1]-3
+        radius: [30, ]
+        size_hint: (None, None)
+        source: root.source
+        pos_hint: {'center_x': .5, 'center_y': .5}

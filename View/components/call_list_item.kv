@@ -1,0 +1,75 @@
+<CallListItem>:
+    ripple_behavior: True
+    md_bg_color: 0, 0, 0, 0
+    elevation: 0
+    size_hint_y: None
+    padding: [10, 0, 10, 0]
+    spacing: 10
+    height: avatar.height + 10
+    Avatar:
+        id: avatar
+        source: 'assets/images/avatar.png'
+        pos_hint: {"center_y": .5}
+        radius: [30, ]
+    MDBoxLayout:
+        # md_bg_color: 1, 0, 1, 1
+        orientation: "vertical"
+        padding: [0, 0, 0, 10]
+        spacing: 2
+        Label:
+            markup: True
+            id: user_name
+            text: root.user
+            theme_text_color: 'Custom'
+            size: self.texture_size
+            size_hint_y: None
+            size_hint_x: None
+            font_size: 15
+            color: app.theme_cls.opposite_bg_normal
+            bold: True
+        MDBoxLayout:
+            orientation: "horizontal"
+#            padding: [0, 0, 0, 10]
+            spacing: 5
+            MDIcon:
+                id: out_in_call_icon
+                theme_text_color: 'Custom'
+                icon: 'arrow-top-right' if root.from_me == 1 else 'arrow-bottom-left'
+                size_hint: None, None
+                font_size: 18
+                size: 20, 20
+                pos_hint: {"center_x": .5, 'center_y': .5}
+                text_color: 'green' if root.from_me == 1 else 'red'
+            MLabel:
+                id: timestamp
+                text: root.timestamp
+                height: self.texture_size[1]
+                theme_text_color: 'Custom'
+                size_hint_y: None
+                bold: True
+                font_size: 15
+                shorten: True
+                markup: True
+                shorten_from: 'right'
+
+    MLabel:
+        id: call_duration
+        text: root.duration
+        height: self.texture_size[1]
+        theme_text_color: 'Custom'
+        adaptive_size: True
+        size_hint_y: None
+        pos_hint: {"center_x": .5, 'center_y': .5}
+        bold: True
+        font_size: 15
+        markup: True
+
+    MDIcon:
+        id: audio_video_icon
+        theme_text_color: 'Custom'
+        icon: 'video' if root.video_call == 1 else 'phone'
+        size_hint: None, None
+        font_size: 18
+        size: 20, 20
+        pos_hint: {"center_x": .5, 'center_y': .5}
+        text_color: app.theme_cls.primary_color

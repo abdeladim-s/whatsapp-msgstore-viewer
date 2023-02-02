@@ -1,0 +1,60 @@
+#:import hex kivy.utils.get_color_from_hex
+
+<About>
+    size_hint_y: None
+    height: "400dp"
+    MDTabs:
+        tab_indicator_anim: True
+        tab_indicator_height: 5
+        tab_hint_x: True
+        allow_stretch: True
+        background_color: app.theme_cls.accent_color
+        indicator_color: app.theme_cls.primary_color
+        Tab:
+            title: "About"
+            ScrollView:
+                do_scroll_y: True
+                bar_width: 10
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    md_bg_color: app.theme_cls.bg_normal
+                    size_hint_y: None
+                    adaptive_height: True
+                    padding: [10, 10, 10, 10]
+                    MDLabel:
+                        id: about_label
+                        markup: True
+                        adaptive_height: True
+                        text: root.about
+        Tab:
+            title: "Licence"
+            ScrollView:
+                do_scroll_y: True
+                bar_width: 10
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    md_bg_color: app.theme_cls.bg_normal
+                    size_hint_y: None
+                    adaptive_height: True
+                    padding: [10, 10, 10, 10]
+                    MDLabel:
+                        markup: True
+                        adaptive_size: True
+                        text: root.licence
+        Tab:
+            title: "Credits"
+            ScrollView:
+                do_scroll_y: True
+                bar_width: 10
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    md_bg_color: app.theme_cls.bg_normal
+                    size_hint_y: None
+                    adaptive_height: True
+                    padding: [10, 10, 10, 10]
+                    MDLabel:
+                        markup: True
+                        adaptive_height: True
+                        text: root.credits

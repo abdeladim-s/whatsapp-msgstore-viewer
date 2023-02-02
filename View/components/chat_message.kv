@@ -1,0 +1,53 @@
+#:import hex kivy.utils.get_color_from_hex
+
+<ChatMessage>:
+    orientation: 'vertical'
+    height: chat_message.height
+    MDCard:
+        id: chat_message
+        padding: 10
+        orientation: 'vertical'
+        md_bg_color: hex('#D9FDD3') if root.from_me == 1 else hex('#FFFFFF')
+        pos_hint: {'right': 1} if root.from_me == 1 else {'left': 1}
+        width: max(msg_text.width, time.width, attachment.width, quote.width) + 20
+        height: msg_text.height + time.height + attachment.height + quote.height + 20
+        size_hint: None, None
+        Quote:
+            id: quote
+            text: f"{root.msg_quoted_text_data}"
+            adaptive_size: True
+            pos_hint: {'right': 1} if root.from_me == 1 else {'left': 1}
+            halign: 'right' if root.from_me == 1 else 'left'
+            md_bg_color: hex('#d1f4cc') if root.from_me == 1 else hex('#f5f6f6')
+            line_color: hex('#06cf9c') if root.message_quoted_from_me == 0 else hex('#53bdeb')
+            padding: (10, 10)
+        MLabel:
+            id: msg_text
+            allow_copy: True
+            allow_selection: True
+            pos_hint: {'right': 1} if root.from_me == 1 else {'left': 1}
+            halign: 'right' if root.from_me == 1 else 'left'
+            valign: 'center'
+            text: root.txt_data
+            size_hint: None, None
+            adaptive_size: True
+            size: self.texture_size
+        Attachment:
+            id: attachment
+            text: f"[u][ref=link]{root.media_filename}[/ref][/u]"
+            on_ref_press: root.open_media(root.file_path)
+            adaptive_size: True
+            pos_hint: {'right': 1} if root.from_me == 1 else {'left': 1}
+            size_hint: None, None
+            padding: (10, 10)
+        MLabel:
+            id: time
+            pos_hint: {'right': 1} if root.from_me == 1 else {'left': 1}
+            text: root.timestamp
+            adaptive_size: True
+            font_size: 11
+            color: 0,0,0,0.5
+
+
+
+

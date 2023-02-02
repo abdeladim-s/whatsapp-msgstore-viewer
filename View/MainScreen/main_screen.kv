@@ -1,0 +1,66 @@
+<MainScreenView>
+    MDBoxLayout:
+        orientation: "vertical"
+        MDTopAppBar:
+            id: logoToolBar
+            height: 50
+            anchor_title: 'left'
+            opposite_colors: True
+            title: "Whatsapp"
+            right_action_items: [['logout', root.controller.log_out, 'Log out']]
+            margin: 0
+        MDTabs:
+            tab_indicator_anim: True
+            tab_indicator_height: 5
+            tab_hint_x: True
+            allow_stretch: True
+            Tab:
+                title: "Chats"
+                ScrollView:
+                    do_scroll_y: True
+                    bar_width: 10
+                    scroll_type: ['content', 'bars']
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        md_bg_color: app.theme_cls.bg_normal
+                        size_hint_y: None
+                        adaptive_height: True
+                        padding: [0, 0, 0, 40]
+                        MDList:
+                            id: contact_chat_list
+                            spacing: 10
+
+            Tab:
+                title: "Groups"
+                ScrollView:
+                    do_scroll_y: True
+                    bar_width: 10
+                    scroll_type: ['content', 'bars']
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        md_bg_color: app.theme_cls.bg_normal
+                        size_hint_y: None
+                        adaptive_height: True
+                        padding: [0, 0, 0, 40]
+                        MDList:
+                            id: group_chat_list
+                            spacing: 10
+
+            Tab:
+                title: "Calls"
+                ScrollView:
+                    do_scroll_y: True
+                    scroll_type: ['content', 'bars']
+                    bar_width: 10
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        md_bg_color: app.theme_cls.bg_normal
+                        size_hint_y: None
+                        adaptive_height: True
+                        padding: [0, 0, 0, 40]
+                        MDList:
+                            id: calls
+                            spacing: 10
+
+
+

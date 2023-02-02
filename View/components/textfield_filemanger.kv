@@ -1,0 +1,17 @@
+<TextFieldFileManager>:
+    size_hint_y: None
+    height: text_field.height
+
+    MDTextField:
+        id: text_field
+        hint_text: root.hint_text
+        text: root.text
+        helper_text: root.helper_text
+        on_text: root.on_text(self, self.text)
+
+    MDIconButton:
+        icon: "folder-open-outline"
+        pos_hint: {"center_y": .5}
+        pos: text_field.width - self.width + dp(8), 0
+        theme_text_color: "Hint"
+        on_release: root.open_file_manager(root.hint_text)
