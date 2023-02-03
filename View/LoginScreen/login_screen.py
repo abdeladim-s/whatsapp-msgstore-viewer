@@ -71,7 +71,7 @@ class SettingsContent(ScrollView):
 
 class About(BoxLayout):
     about = StringProperty()
-    licence = StringProperty()
+    license = StringProperty()
     credits = StringProperty()
 
     def __init__(self, **kwargs):
@@ -81,7 +81,7 @@ class About(BoxLayout):
             self.about = content.replace('$$version$$', MDApp.get_running_app().version)\
                 .replace('$$g_page$$', MDApp.get_running_app().g_page)
         with open('LICENSE', 'r') as file:
-            self.licence = file.read()
+            self.license = file.read()
         with open('credits', 'r') as file:
             self.credits = file.read()
 
