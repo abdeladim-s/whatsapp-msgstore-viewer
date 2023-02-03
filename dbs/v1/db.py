@@ -48,13 +48,14 @@ class Database(AbstractDatabase):
         super(Database, self).__init__(msgstore, wa, schema=schema)
 
     def fetch_contact_chats(self):
+        chat_view_table = self.schema['chat_view']['name']  # I will continue later
         sql_query = """
         select 
         chat_view._id, 
-        substr(chat_view.raw_string_jid, 0, instr(chat_view.raw_string_jid,'@')) as user,
+        jid.user,
         chat_view.raw_string_jid,
         message.text_data, 
-        DATETIME(ROUND(chat_view.sort_timestamp / 1000), 'unixepoch') as time
+        DATETIME(ROUND(chat_view.sort_timestamp / 1000), 'unixepoch') as timestamp
 
         from chat_view INNER JOIN jid ON chat_view.raw_string_jid=jid.raw_string 
         INNER JOIN message ON chat_view.last_message_row_id = message._id
@@ -72,7 +73,7 @@ class Database(AbstractDatabase):
                 chat_view.subject as user,
                 chat_view.raw_string_jid,
                 message.text_data, 
-                DATETIME(ROUND(chat_view.sort_timestamp / 1000), 'unixepoch') as time
+                DATETIME(ROUND(chat_view.sort_timestamp / 1000), 'unixepoch') as timestamp
 
                 from chat_view INNER JOIN jid ON chat_view.raw_string_jid=jid.raw_string 
                 INNER JOIN message ON chat_view.last_message_row_id = message._id
@@ -90,7 +91,8 @@ class Database(AbstractDatabase):
                 DATETIME(ROUND(call_log.timestamp / 1000), 'unixepoch') as timestamp, 
                 call_log.video_call,
                 Time(call_log.duration, 'unixepoch') as duration,
-                jid.user, jid.raw_string
+                jid.user, 
+                jid.raw_string as raw_string_jid
 
                 from call_log LEFT JOIN jid
                 ON call_log.jid_row_id = jid._id
@@ -119,4 +121,3 @@ class Database(AbstractDatabase):
         WHERE message.chat_row_id={chat_id}
         """
         return self.msgstore_cursor.execute(sql_query).fetchall()
-

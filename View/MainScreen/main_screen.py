@@ -75,7 +75,7 @@ class MainScreenView(BaseScreenView):
                 chatitem.last_message = fix_emojis(chat['text_data'], self.app.emojis_font)
             else:
                 chatitem.last_message = ''
-            chatitem.timestamp = '\n'.join(chat['time'].split(' '))
+            chatitem.timestamp = '\n'.join(chat['timestamp'].split(' '))
             chatitem.jid = chat['raw_string_jid']
             self.ids['contact_chat_list'].add_widget(chatitem)
 
@@ -85,7 +85,7 @@ class MainScreenView(BaseScreenView):
             last_message = ''
             if chat['text_data'] is not None:
                 last_message = fix_emojis(chat['text_data'], self.app.emojis_font)
-            timestamp = '\n'.join(chat['time'].split(' '))
+            timestamp = '\n'.join(chat['timestamp'].split(' '))
             item = ChatListItem(id=chat['_id'],
                                 contact_name=user,
                                 last_message=last_message,
@@ -96,12 +96,14 @@ class MainScreenView(BaseScreenView):
     def build_calls_list(self, calls):
         for call in calls:
             id = call['_id']
+            jid = call['raw_string_jid']
             user = fix_emojis(call['user'], self.app.emojis_font)
             from_me = call['from_me']
             video_call = call['video_call']
             timestamp = call['timestamp']
             duration = str(call['duration'])
             item = CallListItem(id=id,
+                                jid=jid,
                                 user=user,
                                 from_me=from_me,
                                 video_call=video_call,

@@ -38,30 +38,70 @@ class AbstractDatabase(ABC):
     @abstractmethod
     def fetch_contact_chats(self):
         """
-        This function should return a table of the available contact chat views,
-        i.e. the main activity of WP
-        The table should look like the following
-        chat_id; user; last_message; time
+        This function should return a list of dicts of the available contact chat views,
+        The list should look like this:
+       [
+            {'_id': 1,
+             'user': '123456789',
+             'raw_string_jid': '123456789@s.whatsapp.net',
+             'text_data': 'See my last message',
+             'timestamp': '2022-10-29  17:45:21'
+             },
+            {'_id': 2,
+             'user': '123456780',
+             'raw_string_jid': '123456780@s.whatsapp.net',
+             'text_data': 'See my last message',
+             'timestamp': '2022-04-30  17:45:21'
+             },
+        ]
         """
         pass
 
     @abstractmethod
     def fetch_group_chats(self):
         """
-        This function should return a table of the available contact chat views,
-        i.e. the main activity of WP
-        The table should look like the following
-        chat_id; user; last_message; timestamp
+        This function should return a list of dicts of the available grou chats
+        The list should look like this:
+         [
+            {'_id': 3,
+             'user': 'Group 1', # usually the subject field
+             'raw_string_jid': '1234567890987654321@g.us',
+             'text_data': 'See my last message',
+             'timestamp': '2022-10-29  17:45:21'
+             },
+            {'_id': 4,
+             'user': 'Group 2',
+             'raw_string_jid': '1234567809087654321@g.us',
+             'text_data': 'See my last message',
+             'timestamp': '2022-04-30  17:45:21'
+             },
+        ]
         """
         pass
 
     @abstractmethod
     def fetch_calls(self, how_many=None):
         """
-        This function should return a table of the available contact chat views,
-        i.e. the main activity of WP
-        The table should look like the following
-        chat_id; user; last_message; timestamp
+        This function should return a list of dicts of the available call logs
+        The list should look like this:
+        [
+            {'_id': 1,
+             'from_me': 0,
+             'user': '123456789',
+             'raw_string_jid': '123456789@s.whatsapp.net',
+             'duration': '00:15:12',
+             'video_call': 0,
+             'timestamp': '2022-10-29  17:45:21'
+             },
+            {'_id': 2,
+             'from_me': 1,
+             'user': '123456780',
+             'raw_string_jid': '123456780@s.whatsapp.net',
+             'duration': '00:15:12',
+             'video_call': 1,
+             'timestamp': '2022-10-29  17:45:21'
+             }
+        ]
         """
         pass
 
