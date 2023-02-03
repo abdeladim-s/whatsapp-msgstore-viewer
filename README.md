@@ -1,4 +1,4 @@
-# whatsapp Msgstore Viewer (WMV)
+# whatsapp Msgstore Viewer
 Free, open source and cross-platform app to decrypt, read and view the Whatsapp `msgstore.db` database.
 <br/>
 <p align="center">
