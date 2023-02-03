@@ -58,12 +58,13 @@ in case there have been any updates to the `msgstore` database.
 <br/>
 For now it supports just the schema of my personal `msgstore.db` file.
 <br/>
-So I made it easy to allow the community to add support to more schemas.
+So I made it easy to allow the community to add support to more schemas (It's a simple SQLite exercise :D).
 <br/>
 All contributions are welcome. Feel free to let me know if you need any help.
 <br/>
-Follow these steps in order to add support to other schemas (see `db/v1/db.py` for an example):
-* Create a module in the `dbs` module and give your schema a name (for example `v2`).
+Follow these steps in order to add support to other schemas (see `db/v1/db.py` as an example):
+* Create a package in the `dbs` package and give your schema a name (for example `v2`).
+* Inside the newly created package, create a python module `db.py`.
 * Inherit the abstract class `AbstractDatabase` located in the `dbs/abstract_db.py` module.
 * The app will dynamically load existing schemas when starting. 
 * Submit a pull request. 
