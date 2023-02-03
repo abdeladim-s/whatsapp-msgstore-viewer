@@ -111,6 +111,8 @@ class whatsappMsgstoreViewer(MDApp):
 
     def build_app(self) -> MDScreenManager:
         self.icon = 'assets/images/logo.png'
+        self.title = 'Whatsapp Msgstore Viewer'
+
         self.theme_cls.material_style = "M3"
         self.theme_cls.primary_palette = "Green"
         self.theme_cls.accent_palette = "Gray"
