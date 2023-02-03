@@ -15,7 +15,7 @@ Pre-built binaries are available on the releases page.
 * #### About the Database schema
 
 # Contributing
-If you find a bug, have a suggestion, or something else, please open an issue for discussion.
+If you find a bug, have a suggestion or feedback, please open an issue for discussion.
 
 # Credits
 
