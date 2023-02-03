@@ -2,7 +2,7 @@
 Free, open source and cross-platform app to decrypt, read and view the Whatsapp `msgstore.db` database.
 <br/>
 <p align="center">
-  <img src="./assets/demo/app_main_screen.png">
+  <img src="./assets/demo/demo_gif.gif">
 </p>
 
 # Features
