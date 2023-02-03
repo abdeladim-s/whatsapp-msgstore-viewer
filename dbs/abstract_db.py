@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This file describes how the database should look like and what it should return.
-Because this app is only a reverse engineering work of the Whatsapp database, it is very likely that it might break
+Because this app is only a reverse engineering attempt of the Whatsapp database, it is very likely that it might break
 in case there have been any updates to the database.
 
 The `schema` variable and the `AbstractDatabase` class are introduced to make it easy to add support to
