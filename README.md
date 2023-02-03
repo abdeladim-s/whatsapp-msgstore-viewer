@@ -59,7 +59,7 @@ So I made it easy to allow the community to add support to more schemas.
 <br/>
 All contributions are welcome. Feel free to let me know if you need any help.
 <br/>
-Follow these steps in order to add support to other schemas (see `db/v1/db.py` for an example): 
+Follow these steps in order to add support to other schemas (see `db/v1/db.py` for an example):
 * Create a module in the `dbs` module and give your schema a name (for example `v2`).
 * Inherit the abstract class `AbstractDatabase` located in the `dbs/abstract_db.py` module.
 * The app will dynamically load existing schemas when starting. 
