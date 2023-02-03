@@ -80,7 +80,6 @@ If you find a bug, have a suggestion or feedback, please open an issue for discu
 - [Sbk2605](https://commons.m.wikimedia.org/wiki/File:Whatsapp_logo.jpg) for the Whatsapp logo (Licenced under [Creative Commons Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/deed.en)).
 - [whatsapp-chat-parser-website](https://github.com/Pustur/whatsapp-chat-parser-website) for the background image.
 <br/>
-<br/>
 And so many more libraries and frameworks.
 
 
