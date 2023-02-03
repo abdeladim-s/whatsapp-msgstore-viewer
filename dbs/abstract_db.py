@@ -32,10 +32,6 @@ class AbstractDatabase(ABC):
             self.load_contacts(self.wa_cursor)
 
     @abstractmethod
-    def get_chat_views(self):
-        pass
-
-    @abstractmethod
     def fetch_contact_chats(self):
         """
         This function should return a list of dicts of the available contact chat views,
@@ -108,11 +104,33 @@ class AbstractDatabase(ABC):
     @abstractmethod
     def fetch_chat(self, chat_id):
         """
-        This function should return a table of the messages of a specific chat identified by chat_id
-        The table should look like the following
-
-        _id, key_id, from_me, timestamp, text_data, message_type, mim_type, file_path,
-        width, height, message_url, thumbnail
+        This function should return a list of dicts of the available chat messages related to the `chat_id` given as
+        input.
+        This list should look like this:
+         [
+                {
+                    '_id': 1,
+                    'key_id': '4552235ASAASDJKHASH',
+                    'from_me': 1,
+                    'timestamp': '2022-06-28 22:23:13',
+                    'text_data': 'Hello bro, How are you ?',
+                    'file_path': None,
+                    'message_quoted_text_data': None,
+                    'message_quoted_from_me': None,
+                    'message_quoted_key_id': None
+                },
+                {
+                    '_id': 1,
+                    'key_id': '4552235ASAASDJKHASH',
+                    'from_me': 0,
+                    'timestamp': '2022-06-28 22:23:13',
+                    'text_data': '',
+                    'file_path': '/media/images/image.png',
+                    'message_quoted_text_data': None,
+                    'message_quoted_from_me': None,
+                    'message_quoted_key_id': None
+                }
+        ],
         """
         pass
 

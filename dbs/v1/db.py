@@ -102,9 +102,6 @@ class Database(AbstractDatabase):
         else:
             return self.msgstore_cursor.execute(sql_query).fetchall()
 
-    def get_chat_views(self):
-        return self.msgstore_cursor.execute('SELECT * FROM chat_view').fetchone()
-
     def fetch_chat(self, chat_id):
         sql_query = f"""
         select  message._id, message.key_id, message.from_me, DATETIME(ROUND(message.timestamp / 1000), 'unixepoch') as timestamp,  ifnull(message.text_data, '') as text_data,
