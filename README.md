@@ -40,7 +40,7 @@ Pre-built binaries are available on the releases page.
 # Usage
 To use the app, you will need:
 * The `msgstore.db` (`msgstore.db.cryptX` if it is encrypted) database: It is a database where Whatsapp is storing all your messages.
-* The `wa.db` database: It is a database where Whatsapp is storing contact names. It is optional, so if it is not provided you will see just phone numbers.
+* The `wa.db` database: It is a database where Whatsapp is storing contact names. It is optional, so if it is not provided you will just see phone numbers.
 * The `Whatsapp directory`: The directory of Whatsapp in the local storage of your phone. This will be used to view the media files (Optional as well).
 * The `key`: If your database is encrypted, you will need to provide the decryption key to decrypt it first. The decrypted database will be stored in the same directory of your encrypted database suffixed with `-decrypted.db`
   (See bellow for more information).
@@ -90,7 +90,7 @@ And so many more libraries and frameworks.
 # License
 
 This project is licensed under the GNU General Licence version 3 or later. You can modify or redistribute it under the conditions
-of these licences (See [LICENSE.md](./LICENSE.md) for more information).
+of these licences (See [LICENSE](./LICENSE) for more information).
 
 # DISCLAIMER
 This project is not endorsed or certified by WhatsApp Inc. and is meant for **personal and educational purposes only**.
