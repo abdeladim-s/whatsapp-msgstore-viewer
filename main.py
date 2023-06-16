@@ -28,13 +28,16 @@ __status__ = "Production"
 __version__ = "1.1.2"
 __github__ = "https://github.com/abdeladim-s/whatsapp-msgstore-viewer"
 
-
 import importlib
 import os
 import pkgutil
+import sys
+
 
 # To fix the text engine for some languages like Arabic
 os.environ['KIVY_TEXT'] = 'pil'
+
+from kivy.resources import resource_add_path
 
 from kivy import Config
 from PIL import ImageGrab
@@ -45,7 +48,6 @@ height = resolution[1]
 
 Config.set("graphics", "height", height)
 Config.set("graphics", "width", '600')
-
 
 from kivymd.tools.hotreload.app import MDApp
 from kivymd.uix.screenmanager import MDScreenManager
@@ -83,9 +85,18 @@ class whatsappMsgstoreViewer(MDApp):
 
         self.db = None
         self.db_versions = []
-        for _, name, _ in pkgutil.iter_modules(['dbs']):
-            if name != 'abstract_db':
-                self.db_versions.append(name)
+        # pkgutil has issues when packaging the app
+
+        # for _, name, _ in pkgutil.iter_modules(['./dbs']):
+        #     if name != 'abstract_db':
+        #         self.db_versions.append(name)
+
+        # fix dynamically loading when packaging the app
+
+        for dir_version in os.listdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dbs')):
+            if dir_version.startswith('__') or dir_version.endswith('.py'):
+                continue
+            self.db_versions.append(dir_version)
 
         self.db_version = self.db_versions[0]
 
@@ -132,17 +143,20 @@ class whatsappMsgstoreViewer(MDApp):
 
     # Hot Reloading
 
-        # Window.bind(on_key_down=self.on_keyboard_down)
-        # def on_keyboard_down(self, window, keyboard, keycode, text, modifiers) -> None:
-        #     """
-        #     The method handles keyboard events.
-        #
-        #     By default, a forced restart of an application is tied to the
-        #     `CTRL+R` key on Windows OS and `COMMAND+R` on Mac OS.
-        #     """
-        #
-        #     if "meta" in modifiers or "ctrl" in modifiers and text == "r":
-        #         self.rebuild()
+    # Window.bind(on_key_down=self.on_keyboard_down)
+    # def on_keyboard_down(self, window, keyboard, keycode, text, modifiers) -> None:
+    #     """
+    #     The method handles keyboard events.
+    #
+    #     By default, a forced restart of an application is tied to the
+    #     `CTRL+R` key on Windows OS and `COMMAND+R` on Mac OS.
+    #     """
+    #
+    #     if "meta" in modifiers or "ctrl" in modifiers and text == "r":
+    #         self.rebuild()
 
 
-whatsappMsgstoreViewer().run()
+if __name__ == '__main__':
+    if hasattr(sys, '_MEIPASS'):
+        resource_add_path(os.path.join(sys._MEIPASS))
+    whatsappMsgstoreViewer().run()
