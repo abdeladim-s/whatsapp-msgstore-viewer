@@ -31,11 +31,6 @@ Pre-built binaries are available on the releases page.
   ```bash 
   python main.py 
   ```
-  * _if [kivy](https://kivy.org/doc/stable/) and/or [kivymd](https://kivymd.readthedocs.io/) fail to install, try to install them from master branch:_
-  ```bash 
-  pip install https://github.com/kivy/kivy/archive/master.zip
-  pip install https://github.com/kivymd/KivyMD/archive/master.zip 
-  ```
 
 # Usage
 To use the app, you will need:

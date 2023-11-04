@@ -1,6 +1,6 @@
 watchdog
-Kivy~=2.2.0.dev0
-kivymd~=1.2.0.dev0
+Kivy~=2.2.0
+kivymd @ https://github.com/kivymd/KivyMD/archive/a85adc5ee4ee2178b7d353a260f2cbcefce885c7.zip
 pygame
 Pillow~=9.4.0
 requests~=2.28.2
