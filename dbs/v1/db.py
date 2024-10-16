@@ -63,6 +63,8 @@ class Database(AbstractDatabase):
         WHERE 
 
         chat_view.raw_string_jid not LIKE '%g.us'
+        
+        order by timestamp desc
         """
         return self.msgstore_cursor.execute(sql_query).fetchall()
 
