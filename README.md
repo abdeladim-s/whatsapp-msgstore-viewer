@@ -65,9 +65,12 @@ Follow these steps in order to add support to other schemas (see `db/v1/db.py` a
 * Submit a pull request. 
 
 * #### About different languages
-You might face an issue where the messages are being displayed in a wierd way (square characters).
-This is probably a font issue. To fix that, search for a font that supports your language, and on the login screen, go to
-`advanced settings` and provide the path to your font. 
+
+  - You might face an issue where the messages are being displayed in a wierd way (square characters).
+  This is probably a font issue. To fix that, search for a font that supports your language, and on the login screen, go to
+  `advanced settings` and provide the path to your font.
+  - For RTL languages, please see [RTL Support #8](https://github.com/abdeladim-s/whatsapp-msgstore-viewer/discussions/8)
+
 # Contributing
 If you find a bug, have a suggestion or feedback, please open an issue for discussion.
 
